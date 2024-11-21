@@ -20,7 +20,7 @@ jobs:
         run:  sudo tar -xvzf ~/Downloads/ngrok-v3-stable-linux-amd64.tgz -C /usr/local/bin
       - name: Auth
 
-        run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
+        run: /home/runner/Downloads/ngrok/ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
 
         env:
 
