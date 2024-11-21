@@ -20,7 +20,7 @@ jobs:
           ls /home/runner/Downloads/
       - name: extract
         run: | 
-          sudo tar -xvzf ~/Downloads/ngrok-v3-stable-linux-amd64.tgz 
+          sudo tar -xvzf ~/Downloads/ngrok-v3-stable-linux-amd64.tgz -C /home/runner/Downloads
           ls /home/runner/Downloads/
 
       - name: Auth
