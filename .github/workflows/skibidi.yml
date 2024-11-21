@@ -17,10 +17,10 @@ jobs:
       - name: install
         run:  wget -P /home/runner/Downloads https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz 
       - name: extract
-        run:  sudo tar -xvzf ~/Downloads/ngrok-v3-stable-linux-amd64.tgz
+        run:  sudo tar -xvzf ~/Downloads/ngrok-v3-stable-linux-amd64.tgz -C /usr/local/bin
       - name: Auth
 
-        run: /home/runner/Downloads/ngrok authtoken $Env:NGROK_AUTH_TOKEN
+        run: /usr/local/bin ngrok authtoken $Env:NGROK_AUTH_TOKEN
 
         env:
 
