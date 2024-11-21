@@ -15,9 +15,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: install
-        run:  wget -P /home/runner/Downloads https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz 
-      - name: extract
-        run:  sudo tar -xvzf ~/Downloads/ngrok-v3-stable-linux-amd64.tgz -C /usr/local/bin
+        run:  |
+          wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+          ls Downloads/
+
       - name: Auth
 
         run: /usr/local/bin ngrok authtoken $Env:NGROK_AUTH_TOKEN
