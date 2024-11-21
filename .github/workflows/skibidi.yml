@@ -17,19 +17,18 @@ jobs:
       - name: install
         run:  wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 	  
-     - name: extract
-       run:  sudo tar -xvzf ~/Downloads/ngrok-v3-stable-linux-amd64.tgz -C /usr/local/bin
-       	  
-  	 	
-    - name: Auth
+      - name: extract
+        run:  sudo tar -xvzf ~/Downloads/ngrok-v3-stable-linux-amd64.tgz -C /usr/local/bin
 
-      run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
+      - name: Auth
 
-      env:
+        run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
 
-        NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
-    - name: ssh start
-      run: sudo systemctl start ssh
+        env:
+
+          NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+      - name: ssh start
+        run: sudo systemctl start ssh
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
