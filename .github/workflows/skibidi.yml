@@ -26,11 +26,7 @@ jobs:
       - name: Auth
         run: |
           cd /home/runner/Downloads
-          ./ngrok authtoken $Env:NGROK_AUTH_TOKEN
-
-        env:
-
-          NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+          ngrok config add-authtoken 2p7aKNhdmC6GxOyW7u7hkRRsCgE_59JeGwT3qMwx7cnSQQmZy
       - name: ssh start
         run: sudo systemctl start ssh
       # Runs a single command using the runners shell
