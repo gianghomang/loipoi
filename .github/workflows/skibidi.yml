@@ -43,5 +43,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - name: Create Tunnel
+        run: |
           cd /home/runner/Downloads
           ./ngrok tcp 3389
