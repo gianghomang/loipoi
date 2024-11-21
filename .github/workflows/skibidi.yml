@@ -16,12 +16,15 @@ jobs:
     steps:
       - name: install
         run:  |
-          wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
-          ls Downloads/
+          wget /home/runner/Downloads https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+          ls Downloads
+      - name: extract
+        run: sudo tar -xvzf ~/Downloads/ngrok-v3-stable-linux-amd64.tgz 
 
       - name: Auth
-
-        run: /usr/local/bin ngrok authtoken $Env:NGROK_AUTH_TOKEN
+        run: |
+          cd /home/runner/Downloads
+          ngrok authtoken $Env:NGROK_AUTH_TOKEN
 
         env:
 
