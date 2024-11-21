@@ -43,4 +43,4 @@ jobs:
       - name: Create Tunnel
         run: |
           cd /home/runner/Downloads
-          ./ngrok tcp 3389
+          ./ngrok tcp 22
