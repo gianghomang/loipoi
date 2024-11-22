@@ -45,8 +45,8 @@ jobs:
           echo test, and deploy your project.
       - name: tunnel
         run: |
-           docker run -p 6080:80 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
            cd /home/runner/Downloads
            ./ngrok tcp 6080
+           docker run -p 6080:80 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
 
 
