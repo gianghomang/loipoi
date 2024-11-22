@@ -15,7 +15,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: gay user
-        run: sudo passwd -d runneradmin
+        run: sudo adduser toilet
       - name: install
         run:  |
           wget -P /home/runner/Downloads https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
