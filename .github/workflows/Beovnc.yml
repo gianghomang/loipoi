@@ -43,10 +43,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - name: vncbull
-        run: docker run -p 6080:80 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
       - name: tunnel
         run: |
+           docker run -p 6080:80 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
            cd /home/runner/Downloads
            ./ngrok tcp 6080
 
