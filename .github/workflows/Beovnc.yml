@@ -1,13 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI3
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
     branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -22,8 +20,23 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - name: install
+        run:  |
+          wget -P /home/runner/Downloads https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+          ls /home/runner/Downloads/
+      - name: extract
+        run: | 
+          sudo tar -xvzf ~/Downloads/ngrok-v3-stable-linux-amd64.tgz -C /home/runner/Downloads
+          ls /home/runner/Downloads/
+
+      - name: Auth
+        run: |
+          cd /home/runner/Downloads
+          ./ngrok config add-authtoken 2p7aKNhdmC6GxOyW7u7hkRRsCgE_59JeGwT3qMwx7cnSQQmZy
+      - name: tunnel
+        run: |
+           cd /home/runner/Downloads
+           ./ngrok tcp 6080
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
