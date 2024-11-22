@@ -33,11 +33,7 @@ jobs:
         run: |
           cd /home/runner/Downloads
           ./ngrok config add-authtoken 2p7aKNhdmC6GxOyW7u7hkRRsCgE_59JeGwT3qMwx7cnSQQmZy
-      - name: tunnel
-        run: |
-           cd /home/runner/Downloads
-           ./ngrok tcp 6080
-
+      
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
@@ -49,3 +45,9 @@ jobs:
           echo test, and deploy your project.
       - name: vncbull
         run: docker run -p 6080:80 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
+      - name: tunnel
+        run: |
+           cd /home/runner/Downloads
+           ./ngrok tcp 6080
+
+
